@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Custom Components */
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-20 rounded-xl shadow-xl;
+  }
+  
+  /* Modern Button */
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+  
+  /* Modern Input */
+  .input-modern {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white bg-opacity-50 backdrop-blur-sm;
+  }
+  
+  /* Modern Table */
+  .table-modern {
+    @apply w-full bg-white bg-opacity-80 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg;
+  }
+  
+  .table-modern th {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-6 py-4 text-left;
+  }
+  
+  .table-modern td {
+    @apply px-6 py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    @apply bg-gradient-to-b from-blue-800 to-blue-900 text-white w-64 min-h-screen p-6 transition-all duration-300;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all duration-200 cursor-pointer;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-white bg-opacity-20 border-l-4 border-white;
+  }
+  
+  /* Dashboard Cards */
+  .stat-card {
+    @apply glass-card p-6 hover:transform hover:scale-105 transition-all duration-300 cursor-pointer;
+  }
+  
+  .stat-number {
+    @apply text-3xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent;
+  }
+  
+  /* Loading Animation */
+  .loading-spinner {
+    @apply animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500;
+  }
+  
+  /* Notification */
+  .notification {
+    @apply fixed top-4 right-4 z-50 glass-card p-4 max-w-sm;
+  }
+  
+  .notification.success {
+    @apply border-l-4 border-green-500;
+  }
+  
+  .notification.error {
+    @apply border-l-4 border-red-500;
+  }
+  
+  .notification.warning {
+    @apply border-l-4 border-yellow-500;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600;
+  }
+  
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-r from-gray-500 to-gray-600;
+  }
+  
+  .shadow-glass {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+  .backdrop-blur-glass {
+    backdrop-filter: blur(16px) saturate(180%);
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .glass-card {
+    @apply bg-gray-900 bg-opacity-50 border-gray-700 border-opacity-50;
+  }
+  
+  .input-modern {
+    @apply bg-gray-800 bg-opacity-50 border-gray-600 text-white;
+  }
+  
+  .table-modern {
+    @apply bg-gray-800 bg-opacity-50;
+  }
+  
+  .table-modern td {
+    @apply border-gray-700 hover:bg-gray-700 hover:bg-opacity-50;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    @apply w-full min-h-auto;
+  }
+  
+  .stat-card {
+    @apply p-4;
+  }
+  
+  .stat-number {
+    @apply text-2xl;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-600;
+}
